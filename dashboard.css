@@ -1,0 +1,13 @@
+/* Home dashboard styles (uses the colour variables from style.css) */
+.stats{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--pl);border-radius:12px;padding:12px}
+.stat h3{margin:0;font-size:.95rem}
+.stat b{display:block;font-size:1.8rem;line-height:1.3;color:var(--p);font-variant-numeric:tabular-nums}
+.stat small{color:var(--m);display:block}
+.wk{width:100%;border-collapse:collapse}
+.wk th,.wk td{padding:6px 4px;border-bottom:1px solid var(--b);text-align:left;font-weight:400}
+.wk thead th{font-weight:700;font-size:.9rem}
+.wk tr.now th{color:var(--p);font-weight:700}
+.wb{display:block;height:6px;background:var(--pl);border-radius:3px;margin-top:3px}
+.wb i{display:block;height:100%;background:var(--p);border-radius:3px}

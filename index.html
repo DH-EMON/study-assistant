@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Home | Study Assistant</title><meta name="description" content="Free study tools, practice quizzes and planner for HSC and admission students.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head><body>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="dashboard.css"></head><body>
 <header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html">Planner</a><a href="english.html">English</a><a href="help.html">Help</a></nav></header>
 <main>
 <section class="hero"><h1>Study Assistant</h1><p><b>Learn Smarter. Practice Better. Achieve More.</b></p><p>Free tools for HSC and university admission students: notes, MCQ practice, calculators, a planner and a focus timer. Works in your browser, no sign-in.</p>
 <a class="btn" href="study-materials.html">Start Studying</a> <a class="btn s" href="practice.html">Take a Quiz</a> <a class="btn s" href="study-planner.html">Plan My Day</a></section>
 <div class="card"><h2>Study tip</h2><p id="tip"></p></div>
-<div class="card"><h2>Your progress on this device</h2><p id="me">Loading…</p><small>Counted only from what you save in this browser.</small></div>
+<section class="card" aria-labelledby="dh"><h2 id="dh">My dashboard</h2>
+<div class="stats" id="ds">
+<div class="stat"><h3>Quizzes completed</h3><b id="dq">–</b><small id="dqs"></small></div>
+<div class="stat"><h3>Tasks done today</h3><b id="dt">–</b><small id="dts"></small></div>
+<div class="stat"><h3>Focus time today</h3><b id="df">–</b><small id="dfs"></small></div>
+<div class="stat"><h3>Study streak</h3><b id="dk">–</b><small>Days in a row with a quiz, a completed task or a focus session</small></div></div>
+<p><small>Counted only from what you save in this browser. Nothing is estimated.</small></p></section>
+<section class="card" aria-labelledby="gh"><h2 id="gh">Daily goal</h2><progress id="gp" max="100" value="0" aria-describedby="gt" hidden></progress><p id="gt" aria-live="polite"></p>
+<form id="gf" novalidate><label for="gi">Daily goal (focus minutes)</label><div class="row"><input id="gi" type="number" inputmode="numeric" min="5" max="720"><button>Save goal</button></div><p class="msg" id="gm" aria-live="polite"></p></form></section>
+<section class="card" aria-labelledby="wh"><h2 id="wh">Last 7 days</h2><div style="overflow-x:auto"><table class="wk"><thead><tr><th scope="col">Day</th><th scope="col">Focus (min)</th><th scope="col">Tasks</th><th scope="col">Quizzes</th></tr></thead><tbody id="wk"></tbody></table></div><p class="res" id="wt"></p></section>
 <h2>Explore</h2><div class="grid">
 <a class="card" href="study-materials.html"><h3>📚 Study Materials</h3>Sample notes with search and bookmarks.</a>
 <a class="card" href="practice.html"><h3>📝 Practice</h3>Practice and timed MCQ tests.</a>
@@ -19,4 +28,4 @@
 <p><small>Notes and questions in this version are samples for demonstration, not official exam material.</small></p></main>
 <footer>Study Assistant · Learn Smarter. Practice Better. Achieve More.<br>All data stays in your browser · <a href="help.html">Help &amp; privacy</a></footer>
 <nav id="bn" aria-label="Quick"><a href="index.html" aria-current="page">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="study-planner.html">Planner</a></nav>
-<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script></body></html>
+<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script><script src="dashboard.js"></script></body></html>

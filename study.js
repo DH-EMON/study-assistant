@@ -26,7 +26,7 @@ const draw=()=>{const q=L[i],a=A[i],fb=!timed&&a>=0;$('#qh').textContent=`Questi
 q[3].forEach((o,j)=>{const b=document.createElement('button');b.className='opt'+(fb?(j==q[4]?' ok':j==a?' no':''):j==a?' sel':'');b.textContent=String.fromCharCode(65+j)+'. '+o;b.onclick=()=>{if(fb)return;A[i]=j;draw()};$('#qo').append(b)});
 $('#qx').textContent=fb?(a==q[4]?'Correct. ':'Incorrect. ')+q[5]:'';$('#qpv').disabled=i==0;$('#qnx').disabled=i==L.length-1};
 const fin=()=>{clearInterval(iv);const sec=Math.round((Date.now()-t0)/1000);let c=0;L.forEach((q,j)=>{if(A[j]==q[4])c++});
-const h=DB.get('quiz',[]);h.unshift({d:today(),s:$('#qsub').value||'All',n:L.length,c,sec});DB.set('quiz',h.slice(0,20));
+const h=DB.get('quiz',[]);h.unshift({d:today(),s:$('#qsub').value||'All',n:L.length,c,sec});DB.set('quiz',h.slice(0,200));
 $('#qbox').hidden=true;$('#qres').hidden=false;$('#qsum').textContent=`Score ${c}/${L.length} (${Math.round(c/L.length*100)}% accuracy) · Time ${Math.floor(sec/60)}m ${sec%60}s · Marking: +1 per correct answer, no negative marks`;
 $('#qrev').innerHTML=L.map((q,j)=>A[j]==q[4]?'':`<li><b>${esc(q[2])}</b><br>Your answer: ${A[j]<0?'not answered':esc(q[3][A[j]])}<br>Correct: ${esc(q[3][q[4]])}<br>${esc(q[5])}</li>`).join('')||'<li>All answers correct!</li>';hist()};
 $('#qgo').onclick=()=>{const s=$('#qsub').value,d=$('#qdif').value;L=shuffle(Q.filter(x=>(!s||x[0]==s)&&(!d||x[1]==d))).slice(0,+$('#qn').value);

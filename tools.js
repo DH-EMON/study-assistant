@@ -30,7 +30,7 @@ const cnt=()=>DB.get('focus',{})[today()]||0;
 const show=()=>{const s=Math.max(0,Math.ceil(left));tm.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');$('#ph').textContent=ph+(iv?' (running)':'');$('#fc').textContent=cnt()};
 const stop=()=>{clearInterval(iv);iv=null};
 const beep=()=>{try{const c=new AudioContext(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();o.stop(c.currentTime+.6)}catch(e){}if(navigator.vibrate)navigator.vibrate([300,100,300])};
-const tick=()=>{left=(end-Date.now())/1000;if(left<=0){stop();beep();if(ph=='Focus'){const f=DB.get('focus',{});f[today()]=cnt()+1;DB.set('focus',f)}$('#tmsg').textContent=ph+' finished! Press Start for the next phase.';ph=ph=='Focus'?'Break':'Focus';left=(ph=='Focus'?F:B)*60}show()};
+const tick=()=>{left=(end-Date.now())/1000;if(left<=0){stop();beep();if(ph=='Focus'){const f=DB.get('focus',{});f[today()]=cnt()+1;DB.set('focus',f);const mm=DB.get('focusMin',{});mm[today()]=(+mm[today()]||0)+F;DB.set('focusMin',mm)}$('#tmsg').textContent=ph+' finished! Press Start for the next phase.';ph=ph=='Focus'?'Break':'Focus';left=(ph=='Focus'?F:B)*60}show()};
 $('#ts').onclick=()=>{if(iv)return;end=Date.now()+left*1000;$('#tmsg').textContent='';iv=setInterval(tick,250);show()};
 $('#tp').onclick=()=>{if(iv){tick();stop();show()}};
 $('#tr').onclick=()=>{stop();ph='Focus';left=F*60;$('#tmsg').textContent='';show()};
