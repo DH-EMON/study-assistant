@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Practice Quiz | Study Assistant</title><meta name="description" content="Practice MCQs and timed mock tests.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html" aria-current="page">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html">Planner</a><a href="english.html">English</a><a href="help.html">Help</a></nav></header>
+<main><h1>Practice Quiz</h1><p><span class="tag">Sample content</span> Sample questions only; not an official exam.</p>
+<div class="card" id="qset"><div class="row"><div><label for="qsub">Subject</label><select id="qsub"></select></div><div><label for="qdif">Difficulty</label><select id="qdif"><option value="">All</option><option>Easy</option><option>Medium</option><option>Hard</option></select></div>
+<div><label for="qm">Mode</label><select id="qm"><option value="p">Practice (instant feedback)</option><option value="t">Timed test (45 s per question)</option></select></div><div><label for="qn">Questions</label><select id="qn"><option>5</option><option selected>10</option><option>15</option></select></div></div>
+<p class="msg" id="qe"></p><button id="qgo">Start</button><h2>Recent attempts</h2><ul id="qhist"></ul></div>
+<div class="card" id="qbox" hidden><p><b id="qh"></b> <span id="qt" class="res"></span></p><h2 id="qq"></h2><div id="qo"></div><p id="qx"></p><div class="row"><button id="qpv" class="s">Previous</button><button id="qnx" class="s">Next</button><button id="qfn">Finish</button></div></div>
+<div class="card" id="qres" hidden><h2>Results</h2><p id="qsum" class="res"></p><h3>Review of mistakes</h3><ul id="qrev"></ul><button id="qrt">Try another set (same settings)</button> <button id="qnw" class="s">Change settings</button></div></main>
+<footer>Study Assistant · Learn Smarter. Practice Better. Achieve More.<br>All data stays in your browser · <a href="help.html">Help &amp; privacy</a></footer>
+<nav id="bn" aria-label="Quick"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html" aria-current="page">Practice</a><a href="study-tools.html">Tools</a><a href="study-planner.html">Planner</a></nav>
+<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script></body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Study Planner | Study Assistant</title><meta name="description" content="Daily study planner with streak, focus timer and stopwatch.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html" aria-current="page">Planner</a><a href="english.html">English</a><a href="help.html">Help</a></nav></header>
+<main><h1>Study Planner</h1>
+<div class="card"><form id="pf" novalidate><div class="row"><div><label for="pt">Task</label><input id="pt" maxlength="100"></div><div><label for="ps">Subject</label><input id="ps" maxlength="40" placeholder="e.g. Physics"></div><div><label for="pm">Minutes</label><input id="pm" type="number" min="1" max="720" value="30"></div>
+<div><label for="pp">Priority</label><select id="pp"><option>High</option><option selected>Medium</option><option>Low</option></select></div><div><label for="pd">Date</label><input id="pd" type="date"></div><button id="pb">Add task</button></div><p class="msg" id="pe"></p></form></div>
+<div class="card"><div class="row"><div><label for="pfl">Show</label><select id="pfl"><option value="today">Today</option><option value="all">All dates (agenda)</option></select></div><p>Streak: <b id="pst">0</b> day(s)</p></div><progress id="pg" max="100" value="0"></progress><p id="pgt"></p><div id="pl"></div></div>
+<div class="card"><h2>Focus timer</h2><p><b id="ph"></b> · Completed today: <b id="fc">0</b></p><div class="big" id="tm">25:00</div><p class="res" id="tmsg" aria-live="polite"></p>
+<div class="row"><button id="ts">Start / Resume</button><button id="tp" class="s">Pause</button><button id="tr" class="s">Reset</button></div>
+<div class="row"><button class="s" data-f="25" data-b="5">25 / 5</button><button class="s" data-f="50" data-b="10">50 / 10</button><input id="cf" type="number" min="1" max="180" placeholder="Focus min" aria-label="Custom focus minutes" style="width:110px"><input id="cb" type="number" min="1" max="60" placeholder="Break min" aria-label="Custom break minutes" style="width:110px"><button id="tc" class="s">Use custom</button></div>
+<small>Keep this page open and the screen on: browsers may pause timers in the background.</small></div>
+<div class="card"><h2>Stopwatch</h2><div class="big" id="sw">00:00.00</div><div class="row"><button id="ws">Start</button><button id="wl" class="s">Lap</button><button id="wr" class="s">Reset</button></div><ol id="laps"></ol></div></main>
+<footer>Study Assistant · Learn Smarter. Practice Better. Achieve More.<br>All data stays in your browser · <a href="help.html">Help &amp; privacy</a></footer>
+<nav id="bn" aria-label="Quick"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="study-planner.html" aria-current="page">Planner</a></nav>
+<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script></body></html>

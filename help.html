@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Help | Study Assistant</title><meta name="description" content="How Study Assistant works, backup and privacy.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html">Planner</a><a href="english.html">English</a><a href="help.html" aria-current="page">Help</a></nav></header>
+<main><h1>Help</h1>
+<div class="card"><h2>How it works</h2><p>This is a static website. Everything runs in your browser. There are no accounts and no server, so your data is saved only on this device and browser and is <b>not</b> synchronised to other devices.</p>
+<ul><li><b>Materials, Practice, English, Admission:</b> sample content only.</li><li><b>Planner, quiz history, bookmarks, timer count:</b> saved in browser storage.</li><li><b>Clearing browser data</b> or using private mode can erase your saved items.</li></ul></div>
+<div class="card"><h2>Backup and restore</h2><p>Move your data by hand between browsers or phones.</p><button id="exp">Download backup</button> <label class="btn s" style="margin:3px 0">Restore backup<input id="imp" type="file" accept=".json,application/json" hidden></label> <button id="clr" class="d">Delete my data</button><p id="bk" aria-live="polite"></p></div>
+<div class="card"><h2>Privacy</h2><p>This site does not collect, send or sell your data. It has no accounts, analytics or ads. GitHub, which hosts the site, may keep standard server logs.</p></div>
+<div class="card"><h2>Feedback</h2><p>Report problems or ideas through the Issues tab of this site’s GitHub repository.</p></div></main>
+<footer>Study Assistant · Learn Smarter. Practice Better. Achieve More.<br>All data stays in your browser · <a href="help.html">Help &amp; privacy</a></footer>
+<nav id="bn" aria-label="Quick"><a href="index.html">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="study-planner.html">Planner</a></nav>
+<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script></body></html>
