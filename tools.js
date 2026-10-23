@@ -44,4 +44,27 @@ const el=()=>acc+(iv?Date.now()-t0:0),up=()=>sw.textContent=fmt(el());
 $('#ws').onclick=()=>{if(iv){acc=el();clearInterval(iv);iv=null;$('#ws').textContent='Start';up()}else{t0=Date.now();iv=setInterval(up,50);$('#ws').textContent='Stop'}};
 $('#wl').onclick=()=>{if(el()>0){laps.push(fmt(el()));$('#laps').innerHTML=laps.map((l,i)=>`<li>Lap ${i+1}: ${l}</li>`).join('')}};
 $('#wr').onclick=()=>{clearInterval(iv);iv=null;acc=0;laps=[];$('#laps').innerHTML='';$('#ws').textContent='Start';up()}}
+if($("#tm")){const box=document.createElement("div");box.className="card";box.id="relax";
+box.innerHTML=`<h2>🌿 Relax mode</h2><p><small>Calm sounds are generated inside your browser: no downloads, no copyright issues. Nothing plays until you press a button.</small></p>
+<div class="chips" id="rs"><button class="s" data-r="rain">🌧️ Rain</button><button class="s" data-r="ocean">🌊 Ocean</button><button class="s" data-r="wind">🍃 Wind</button><button class="s" data-r="brown">🌌 Deep calm</button><button class="s" data-r="pad">🎹 Soft chords</button></div>
+<label for="rv">Volume</label><input id="rv" type="range" min="0" max="100" value="40" style="width:100%"><button id="rx" class="d">Stop sound</button><p id="rn" aria-live="polite"></p>
+<h3>Guided breathing (in 4 · hold 4 · out 6)</h3><div id="bc" class="breath" aria-hidden="true"></div><p id="bt" class="res" aria-live="polite">Press start and breathe with the circle.</p><button id="bs" class="s">Start breathing</button>`;
+$("#tm").closest(".card").after(box);
+let ac,master,nodes=[],ri=null;const CH=[[261.63,329.63,392,493.88],[220,261.63,329.63,392],[174.61,261.63,329.63,440],[196,293.66,392,493.88]];
+const ctx=()=>{if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=$("#rv").value/100;master.connect(ac.destination)}if(ac.state=="suspended")ac.resume()};
+const noise=brown=>{const n=ac.sampleRate*2,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<n;i++){const w=Math.random()*2-1;if(brown){l=(l+.02*w)/1.02;d[i]=l*3.5}else d[i]=w}const s=ac.createBufferSource();s.buffer=b;s.loop=true;return s};
+const stop=()=>{nodes.forEach(n=>{try{n.stop()}catch(e){}});nodes=[];clearInterval(ri);$("#rn").textContent="Sound stopped."};
+const play=k=>{ctx();stop();const f=(t,v)=>{const x=ac.createBiquadFilter();x.type=t;x.frequency.value=v;return x},g=v=>{const x=ac.createGain();x.gain.value=v;return x},lfo=(hz,amt,param)=>{const o=ac.createOscillator(),a=g(amt);o.frequency.value=hz;o.connect(a);a.connect(param);o.start();nodes.push(o)};
+if(k=="pad"){const l=f("lowpass",1100),v=g(.5);l.connect(v);v.connect(master);const os=[0,1,2,3].map(()=>{const o=ac.createOscillator(),a=g(.12);o.connect(a);a.connect(l);o.start();nodes.push(o);return o});let c=0;const set=()=>{CH[c%4].forEach((hz,i)=>os[i].frequency.setTargetAtTime(hz,ac.currentTime,1.5));c++};set();ri=setInterval(set,8000);lfo(.15,.15,v.gain)}
+else{const s=noise(k=="ocean"||k=="brown");nodes.push(s);let o;
+if(k=="rain"){const h=f("highpass",600),l=f("lowpass",7000),v=g(.35);s.connect(h);h.connect(l);l.connect(v);o=v}
+if(k=="ocean"){const l=f("lowpass",700),v=g(.5);s.connect(l);l.connect(v);lfo(.09,.4,v.gain);o=v}
+if(k=="wind"){const b=f("bandpass",450),v=g(2.5);b.Q.value=.8;s.connect(b);b.connect(v);lfo(.12,250,b.frequency);o=v}
+if(k=="brown"){const l=f("lowpass",500),v=g(.8);s.connect(l);l.connect(v);o=v}
+o.connect(master);s.start()}};
+$$("#rs [data-r]").forEach(b=>b.onclick=()=>{play(b.dataset.r);$("#rn").textContent="Playing: "+b.textContent.trim()+". Keep this page open."});
+$("#rx").onclick=stop;$("#rv").oninput=e=>{if(master)master.gain.value=e.target.value/100};
+let bi=null;const BP=[["Breathe in…",4,1.4],["Hold…",4,1.4],["Breathe out…",6,.8]];
+$("#bs").onclick=()=>{const c=$("#bc");if(bi){clearTimeout(bi);bi=null;c.style.transform="scale(1)";$("#bt").textContent="Stopped. Press start to begin again.";$("#bs").textContent="Start breathing";return}
+$("#bs").textContent="Stop";let i=0;const step=()=>{const[p,s,z]=BP[i%3];$("#bt").textContent=p;c.style.transitionDuration=s+"s";c.style.transform="scale("+z+")";i++;bi=setTimeout(step,s*1000)};step()}}
 })();
