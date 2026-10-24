@@ -4,6 +4,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="dashboard.css"></head><body>
 <header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html">Planner</a><a href="english.html">English</a><a href="help.html">Help</a></nav></header>
 <main>
+<section class="card srch" role="search"><label for="sq">Search the site</label><input id="sq" type="search" placeholder="Search notes, tools, subjects…" autocomplete="off"><ul id="sr" aria-live="polite"></ul></section>
 <section class="hero"><h1>Study Assistant</h1><p><b>Learn Smarter. Practice Better. Achieve More.</b></p><div class="chips"><a class="btn" href="study-materials.html">Start Studying</a><a class="btn s" href="practice.html">Take a Quiz</a><a class="btn s" href="study-planner.html">Plan My Day</a></div></section>
 <div class="dash" style="margin-top:14px">
 <section class="card" aria-labelledby="mh"><h2 id="mh">🎯 Mindset &amp; Focus</h2>
@@ -26,6 +27,12 @@
 <section class="card" aria-labelledby="eh"><h2 id="eh">🗓️ Upcoming exams</h2><div class="exg" id="xl"></div>
 <form id="xf" novalidate><div class="row"><div><label for="xn">Exam name</label><input id="xn" maxlength="40"></div><div><label for="xd">Date</label><input id="xd" type="date"></div><button>Add</button></div><p class="msg" id="xm" aria-live="polite"></p></form></section>
 <section class="card qn" aria-labelledby="nh"><h2 id="nh">📝 Quick notes</h2><label for="nt">Write anything you want to remember</label><textarea id="nt" maxlength="2000"></textarea><small id="nm" aria-live="polite">Saved only on this device.</small></section>
+<section class="card s2" aria-labelledby="yh"><h2 id="yh">🧭 Syllabus tracker</h2><form id="yf" novalidate><div class="row"><div><label for="ys">Subject</label><select id="ys"></select></div><div><label for="yc">Chapter</label><input id="yc" maxlength="60"></div><button>Add chapter</button></div><p class="msg" id="ym" aria-live="polite"></p></form><div id="yl"></div></section>
+<section class="card" aria-labelledby="kh"><h2 id="kh">🗂️ Flashcard decks</h2>
+<form id="kn" novalidate><label for="kni">New deck name</label><div class="row"><input id="kni" maxlength="40"><button>Create</button></div></form>
+<label for="kd">Deck</label><select id="kd"></select><div class="kv" id="kv" aria-live="polite"></div>
+<div class="row"><button id="kfl" class="s" type="button">Flip</button><button id="knx" type="button">Next</button><button id="kdc" class="s" type="button">Delete card</button><button id="kdd" class="d" type="button">Delete deck</button></div>
+<form id="kc" novalidate><label for="kfr">Front</label><input id="kfr" maxlength="200" style="width:100%"><label for="kbk">Back</label><input id="kbk" maxlength="200" style="width:100%"><button>Add card</button></form><p class="msg" id="kmm" aria-live="polite"></p></section>
 </div>
 <section class="card"><h2>Practice by subject</h2><div class="chips"><a class="btn s" href="practice.html?subject=Physics">⚛️ Physics</a> <a class="btn s" href="practice.html?subject=Chemistry">🧪 Chemistry</a> <a class="btn s" href="practice.html?subject=Higher%20Math">➗ Higher Math</a> <a class="btn s" href="practice.html?subject=ICT">💻 ICT</a> <a class="btn s" href="practice.html?subject=Accounting">📒 Accounting</a> <a class="btn s" href="practice.html?subject=Economics">📈 Economics</a> <a class="btn s" href="practice.html?subject=English">🔤 English</a> </div></section>
 <section class="card"><h2>Quick tools</h2><div class="chips"><a class="btn s" href="study-tools.html">🧮 Calculator</a><a class="btn s" href="study-tools.html">📏 Unit converter</a><a class="btn s" href="study-planner.html">⏱️ Pomodoro</a><a class="btn s" href="study-planner.html">🌿 Relax sounds</a><a class="btn s" href="study-planner.html">⏲️ Stopwatch</a><a class="btn s" href="admission.html">🎓 Admission checklist</a></div></section>
@@ -40,4 +47,4 @@
 <p><small>Notes and questions in this version are samples for demonstration, not official exam material.</small></p></main>
 <footer>Study Assistant · Learn Smarter. Practice Better. Achieve More.<br>All data stays in your browser · <a href="help.html">Help &amp; privacy</a></footer>
 <nav id="bn" aria-label="Quick"><a href="index.html" aria-current="page">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="study-planner.html">Planner</a></nav>
-<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script><script src="dashboard.js"></script></body></html>
+<script src="core.js"></script><script src="tools.js"></script><script src="study.js"></script><script src="dashboard.js"></script><script src="features.js"></script></body></html>

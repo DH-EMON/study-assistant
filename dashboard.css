@@ -25,3 +25,8 @@
 .wk{width:100%;border-collapse:collapse}
 .wk th,.wk td{padding:6px 4px;border-bottom:1px solid var(--b);text-align:left;font-weight:400}
 .wk thead th{font-weight:700;font-size:.9rem}
+/* search, syllabus tracker, flashcard decks */
+.srch input{width:100%}.srch ul{list-style:none;padding:0;margin:8px 0 0}
+.srch li a{display:block;padding:10px 12px;border-radius:12px;background:var(--pl);color:var(--p);text-decoration:none;font-weight:600}
+.yk{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 0}.yk button{min-height:36px;padding:2px 12px}
+.kv{background:var(--pl);border-radius:16px;padding:18px;min-height:110px;text-align:center;font-size:1.2rem;display:grid;place-content:center;margin:10px 0}.kv small{color:var(--m)}
