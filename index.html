@@ -4,19 +4,29 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="dashboard.css"></head><body>
 <header><div class="bar"><a class="logo" href="index.html">📘 Study Assistant</a><button id="mb" aria-expanded="false" aria-controls="nv">Menu</button></div><nav id="nv" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="study-materials.html">Materials</a><a href="practice.html">Practice</a><a href="study-tools.html">Tools</a><a href="admission.html">Admission</a><a href="study-planner.html">Planner</a><a href="english.html">English</a><a href="help.html">Help</a></nav></header>
 <main>
-<section class="hero"><h1>Study Assistant</h1><p><b>Learn Smarter. Practice Better. Achieve More.</b></p><p>Free tools for HSC and university admission students: notes, MCQ practice, calculators, a planner and a focus timer. Works in your browser, no sign-in.</p>
-<a class="btn" href="study-materials.html">Start Studying</a> <a class="btn s" href="practice.html">Take a Quiz</a> <a class="btn s" href="study-planner.html">Plan My Day</a></section>
-<div class="card"><h2>Study tip</h2><p id="tip"></p></div>
-<section class="card" aria-labelledby="dh"><h2 id="dh">My dashboard</h2>
+<section class="hero"><h1>Study Assistant</h1><p><b>Learn Smarter. Practice Better. Achieve More.</b></p><div class="chips"><a class="btn" href="study-materials.html">Start Studying</a><a class="btn s" href="practice.html">Take a Quiz</a><a class="btn s" href="study-planner.html">Plan My Day</a></div></section>
+<div class="dash" style="margin-top:14px">
+<section class="card" aria-labelledby="mh"><h2 id="mh">🎯 Mindset &amp; Focus</h2>
+<div class="ring"><svg viewBox="0 0 120 120" width="140" height="140" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--b)" stroke-width="12"/><circle id="rc" cx="60" cy="60" r="52" fill="none" stroke="var(--p)" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/></svg><div class="ct"><b id="rg">–</b><small id="rgs"></small></div></div>
+<p id="gt" aria-live="polite" style="text-align:center"></p>
+<div class="tipbox"><b>Daily study tip</b><p id="tip" style="margin:.2em 0 0"></p></div>
+<form id="gf" novalidate><label for="gi">Daily goal (focus minutes)</label><div class="row"><input id="gi" type="number" inputmode="numeric" min="5" max="720"><button>Save goal</button></div><p class="msg" id="gm" aria-live="polite"></p></form>
+<a class="btn s" href="study-planner.html">⏱️ Open focus timer</a></section>
+<section class="card s2" aria-labelledby="ph1"><h2 id="ph1">📈 Performance &amp; Progress</h2><h3>Focus minutes, last 7 days</h3><div class="bars" id="bars" role="img" aria-label="Bar chart of focus minutes per day for the last 7 days; see the table below for exact values"></div>
+<p class="res" id="wt"></p>
+<details><summary>View as table</summary><div style="overflow-x:auto"><table class="wk"><thead><tr><th scope="col">Day</th><th scope="col">Focus (min)</th><th scope="col">Tasks</th><th scope="col">Quizzes</th></tr></thead><tbody id="wk"></tbody></table></div></details>
+<h3>Quiz accuracy by subject</h3><div id="sj"></div><small>Only quizzes where you picked one subject are counted.</small></section>
+<section class="card wide" aria-labelledby="dh"><h2 id="dh">📊 My numbers</h2>
 <div class="stats" id="ds">
 <div class="stat"><h3>Quizzes completed</h3><b id="dq">–</b><small id="dqs"></small></div>
 <div class="stat"><h3>Tasks done today</h3><b id="dt">–</b><small id="dts"></small></div>
 <div class="stat"><h3>Focus time today</h3><b id="df">–</b><small id="dfs"></small></div>
 <div class="stat"><h3>Study streak</h3><b id="dk">–</b><small>Days in a row with a quiz, a completed task or a focus session</small></div></div>
 <p><small>Counted only from what you save in this browser. Nothing is estimated.</small></p></section>
-<section class="card" aria-labelledby="gh"><h2 id="gh">Daily goal</h2><progress id="gp" max="100" value="0" aria-describedby="gt" hidden></progress><p id="gt" aria-live="polite"></p>
-<form id="gf" novalidate><label for="gi">Daily goal (focus minutes)</label><div class="row"><input id="gi" type="number" inputmode="numeric" min="5" max="720"><button>Save goal</button></div><p class="msg" id="gm" aria-live="polite"></p></form></section>
-<section class="card" aria-labelledby="wh"><h2 id="wh">Last 7 days</h2><div style="overflow-x:auto"><table class="wk"><thead><tr><th scope="col">Day</th><th scope="col">Focus (min)</th><th scope="col">Tasks</th><th scope="col">Quizzes</th></tr></thead><tbody id="wk"></tbody></table></div><p class="res" id="wt"></p></section>
+<section class="card" aria-labelledby="eh"><h2 id="eh">🗓️ Upcoming exams</h2><div class="exg" id="xl"></div>
+<form id="xf" novalidate><div class="row"><div><label for="xn">Exam name</label><input id="xn" maxlength="40"></div><div><label for="xd">Date</label><input id="xd" type="date"></div><button>Add</button></div><p class="msg" id="xm" aria-live="polite"></p></form></section>
+<section class="card qn" aria-labelledby="nh"><h2 id="nh">📝 Quick notes</h2><label for="nt">Write anything you want to remember</label><textarea id="nt" maxlength="2000"></textarea><small id="nm" aria-live="polite">Saved only on this device.</small></section>
+</div>
 <section class="card"><h2>Practice by subject</h2><div class="chips"><a class="btn s" href="practice.html?subject=Physics">⚛️ Physics</a> <a class="btn s" href="practice.html?subject=Chemistry">🧪 Chemistry</a> <a class="btn s" href="practice.html?subject=Higher%20Math">➗ Higher Math</a> <a class="btn s" href="practice.html?subject=ICT">💻 ICT</a> <a class="btn s" href="practice.html?subject=Accounting">📒 Accounting</a> <a class="btn s" href="practice.html?subject=Economics">📈 Economics</a> <a class="btn s" href="practice.html?subject=English">🔤 English</a> </div></section>
 <section class="card"><h2>Quick tools</h2><div class="chips"><a class="btn s" href="study-tools.html">🧮 Calculator</a><a class="btn s" href="study-tools.html">📏 Unit converter</a><a class="btn s" href="study-planner.html">⏱️ Pomodoro</a><a class="btn s" href="study-planner.html">🌿 Relax sounds</a><a class="btn s" href="study-planner.html">⏲️ Stopwatch</a><a class="btn s" href="admission.html">🎓 Admission checklist</a></div></section>
 <h2>Explore</h2><div class="grid">
